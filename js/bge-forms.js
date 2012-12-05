@@ -788,7 +788,11 @@ $( '#contact-us-page' ).live( 'pageshow',function(event){
 
 $( '#contact-us-page' ).live( 'pageinit',function(event){
 	 
-	var validator = $form.validate({
+	var $currentPage = $(event.target);
+	
+	var $form = $currentPage.find("form#customer-identifier");
+	
+	var validator_contactus = $form.validate({
 		rules: {
 	    	//account_number: {require_from_group: [1,".customer-identifier"]},
 	    	account_number: {require_from_group: [1,".customer-identifier"], digits: true, maxlength: 10, minlength: 10},
@@ -834,9 +838,6 @@ $( '#contact-us-page' ).live( 'pageinit',function(event){
        loadCaptchaTo($('#rao-captcha'));
    });
 
-	var $currentPage = $(event.target);
-	
-	var $form = $currentPage.find("form#customer-identifier");
 	
 	//$form.find("input[name=account_number]").change(function(event){
 	$form.find("input[name=account_number]").bind("keyup change blur", function(event){
