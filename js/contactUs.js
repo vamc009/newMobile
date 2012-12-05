@@ -45,41 +45,6 @@ $( '#contact-us-page' ).live( 'pageshow',function(event){
 
 $( '#contact-us-page' ).live( 'pageinit',function(event){
 	 
-	
-	loadCaptchaTo($('#rao-captcha'));
-	$('#catptha-error').hide();
-	
-	$("#rao-captcha").click(function (event) {
-       loadCaptchaTo($('#rao-captcha'));
-   });
-
-	var $currentPage = $(event.target);
-	
-	var $form = $currentPage.find("form#customer-identifier");
-	
-	//$form.find("input[name=account_number]").change(function(event){
-	$form.find("input[name=account_number]").bind("keyup change blur", function(event){
-		if(checkNull($(this).val()).length > 0){
-			$form.find("input[name=phone_number]").attr("disabled", "disabled");
-		}
-		else{
-			$form.find("input[name=phone_number]").removeAttr("disabled");
-		}
-	});
-	
-	//var validator = $currentPage.find("form#customer-identifier").validate({
-	//$form.find("input[name=phone_number]").change(function(event){
-	//		if($(this).val().length > 0){
-	$form.find("input[name=phone_number]").bind("keyup change blur", function(event){
-		if(checkNull(stripAlpha($(this).val())).length > 0){
-			$form.find("input[name=account_number]").attr("disabled", "disabled");
-		}
-		else{
-			$form.find("input[name=account_number]").removeAttr("disabled");
-		}
-	});
-	
-	
 	var validator = $form.validate({
 		rules: {
 	    	//account_number: {require_from_group: [1,".customer-identifier"]},
@@ -119,6 +84,38 @@ $( '#contact-us-page' ).live( 'pageinit',function(event){
 		}
 	});
 	
+	loadCaptchaTo($('#rao-captcha'));
+	$('#catptha-error').hide();
+	
+	$("#rao-captcha").click(function (event) {
+       loadCaptchaTo($('#rao-captcha'));
+   });
+
+	var $currentPage = $(event.target);
+	
+	var $form = $currentPage.find("form#customer-identifier");
+	
+	//$form.find("input[name=account_number]").change(function(event){
+	$form.find("input[name=account_number]").bind("keyup change blur", function(event){
+		if(checkNull($(this).val()).length > 0){
+			$form.find("input[name=phone_number]").attr("disabled", "disabled");
+		}
+		else{
+			$form.find("input[name=phone_number]").removeAttr("disabled");
+		}
+	});
+	
+	//var validator = $currentPage.find("form#customer-identifier").validate({
+	//$form.find("input[name=phone_number]").change(function(event){
+	//		if($(this).val().length > 0){
+	$form.find("input[name=phone_number]").bind("keyup change blur", function(event){
+		if(checkNull(stripAlpha($(this).val())).length > 0){
+			$form.find("input[name=account_number]").attr("disabled", "disabled");
+		}
+		else{
+			$form.find("input[name=account_number]").removeAttr("disabled");
+		}
+	});
 	
 	
 	
