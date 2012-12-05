@@ -108,6 +108,7 @@ $( '#contact-us-page' ).live( 'pageinit',function(event){
 			//}
 			$('#catptha-error').hide();
 			getAddress();
+			return false;
 			
 			//$('#customer-identifier').submit(function() {
 			//	$('#catptha-error').hide();
