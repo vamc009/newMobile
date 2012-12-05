@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title> Report Outage::BGE Mobile </title>
+        <link rel="stylesheet" href="../css/jquery.mobile-1.2.0.min.css" />
+        
+        
+        <!-- Theme CSS -->
+        <link rel="stylesheet" href="../themes/bge-theme.min.css" />
+        
+        <!-- JQuery Mobile Tool Generated CSS -->
+        <link rel="stylesheet" href="../css/custom.css" />
+        
+        <!-- Custom BGE CSS -->
+        <link rel="stylesheet" href="../css/bge.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="../js/jquery-1.8.2.js" type="text/javascript">
+        </script>
+        
+        <script>
+        	// Kill the active state on buttons.
+		    $(document).bind('mobileinit', function () {
+		        $.mobile.activeBtnClass = 'unused';
+		        $.mobile.defaultPageTransition = "slide";
+		    });
+		</script>
+        
+        <script src="../js/jquery.mobile-1.2.0.min.js" type="text/javascript">
+        </script> 
+        <script src="../js/jquery.maskedinput.js" type="text/javascript">
+        </script>
+        <script src="../js/jquery.validate.min.js" type="text/javascript">
+        </script>
+        <script src="../js/additional-methods.min.js" type="text/javascript">
+        </script>
+        <script src="../js/bge.js" type="text/javascript">
+        </script>
+        <script src="../js/bge-forms.js" type="text/javascript">
+        </script>
+         <script src="../js/contactUs.js" type="text/javascript">
+        </script>
+
+        
+    </head>
+    <body>
+
+	<!-- Report An Outage -->
+    <div data-role="page" data-theme="b" id="report-outage-page">
+        
+<div data-theme="a" data-role="header" id="header" class="bge-clearfix">
+	<div>
+		<a href="https://stg-secure.bge.com../index.html" title="home" data-transition="slide" data-direction="reverse">
+			<img id="logo" src="../images/logo_bge.gif" />
+		</a>
+	</div>
+	            
+	<div class="bge-right bge-menu-button-wrapper">
+		
+		<a href="#" class="bge-menu-button" > </a>
+	</div>
+	<div id="systemAlertIcon">
+	<div class="bge-right bge-notifications-button-wrapper">
+		<a href="#notifications-popup-index" class="bge-notifications-button active" data-rel="popup" data-transition="pop" > </a>
+								 
+	</div>
+	
+								 
+	</div>
+
+	
+</div>
+
+<div data-role="popup" id="notifications-popup-index" class="notifications-popup" data-theme="c">
+	<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+	
+	 <h1 class="title">BGE Alert</h1>
+    <div id="systemAlertMessage">
+		</div>	
+</div>
+
+<div class="slidemenu">
+	
+	<a data-role="button" data-transition="slide" data-icon="home" data-theme="a" 
+    		data-mini="true" href="../index.html" data-transition="slide" data-direction="reverse">Home</a>
+    		
+    <a data-role="button" data-transition="slide" data-icon="bge-report-outage" data-theme="a" 
+    		data-mini="true" href="../Pages/temp/report-outage/index.html">Report A Power Outage</a>
+    		
+    <a data-role="button" data-transition="slide" data-icon="bge-view-outage-map" data-theme="a" 
+    		data-mini="true" href="http://stormcentertest.bge.com.s3.amazonaws.com/m.html">View Outage Map</a>
+    		
+    <a data-role="button" data-transition="slide" data-icon="bge-contact-us" data-theme="a" 
+    		data-mini="true" href="../contact/index.html">Contact Us</a>
+    
+	 
+</div>
+
+
+
+        <div data-role="content">
+        	
+        	<h1>Report a Power Outage</h1>
+        	
+        	
+        	<div class="page-message-container">
+				<p style="font-size: 12px;">Report an electric service interruption or find out if an estimated time of restoration (ETR) is available.</p>
+				
+				<p style="font-size: 12px;">For gas service, down or sparking wires, or dim/flickering lights please call <a href="tel:1-800-685-0123">800.685.0123.</a></p>
+			</div>
+        
+            <div id="report-outage-form-container" class="bge-form-wrapper">
+	<!--<form id="report-outage-form" action="../report-outage/form.html" method="get" data-transition="slide">-->
+	<form id="report-outage-form"  method="get" data-transition="slide">
+		<h2>Outage Locator</h2>
+<p>Please provide one of the following:</p>
+
+<div data-role="fieldcontain">
+
+	<label for="phone_number" class="ui-hidden-accessible">Phone Number:</label>
+	<input type="tel" name="phone_number" class="customer-identifier telephone" id="phone_number" value="" placeholder="Phone #" />
+	
+	<p class="centered-text">- OR -</p>
+	
+	
+	<label for="account_number" class="ui-hidden-accessible">BGE Account Number:</label>
+	<input type="tel" name="account_number" id="account_number" class="customer-identifier" value="" placeholder="BGE Account #"  maxlength="10"/>
+    
+	<label class="error centered-text" id="account-error" style="color:red;">Invalid Information.</label>
+
+
+	<p class="centered-text" style="display:none">
+	Enter number below<img id="rao-captcha" src="../images/captcha.png" alt="captcha" style="vertical-align:middle">	
+	<input type="number" name="captcha-ans" id="captcha-ans" value="" placeholder="Answer" />
+	<label for="captcha-ans" class="error" id="catptha-error" style="color:red;">Incorrect answer.</label>
+	</p>
+	
+</div>
+
+
+
+
+ <input type="hidden" id="encCode"/>
+
+<input type="hidden" class="for-bots" name="forbots" value="" />
+<input type="hidden" name="captcha-flag" value="" />
+<input type="hidden" data-step="1" name="stepone" value="" />
+<input type="hidden" data-step="2" name="steptwo" value="" />
+<input type="hidden" data-step="3" name="stepthree" value="" />
+
+<!--div class="submit-slider-container">
+	<label for="slider-fill">Slide To Unlock</label>
+	
+	<div class="submit-slider-bg ui-btn-down-b">
+		<input type="range" name="submit-slider" value="0" min="0" max="100" step="5" data-highlight="true" />
+	</div>
+	
+</div-->
+
+<input type="submit" value="Submit" id="outage-info-submit"
+				data-theme="a" class="slider-submit-button" />		
+	</form>
+</div>
+
+            
+        </div>
+        <footer style="text-align: center; color: #fff;">
+	<p><small>Stay Connected</small></p>
+	<p>
+		<a href="https://mobile.twitter.com/MyBGE" data-transition="pop"><img alt="Follow Us on Twitter" src="../images/icon-twitter.png"></a>
+		<a href="http://m.facebook.com/myBGE" data-transition="pop"><img alt="Like Us on Facebook" src="../images/icon-facebook.png"></a>
+		<a href="http://m.youtube.com/user/BaltimoreGasElectric" data-transition="pop"><img alt="Visit Us on YouTube" src="../images/icon-youtube.png"></a>
+		<a href="http://m.flickr.com/#/photos/mybge/" data-transition="pop"><img alt="Visit Us on Flickr" src="../images/icon-flickr.png"></a>
+	</p>
+	<p><small>&copy;2012 Baltimore Gas and Electric Company.<br>All Right Reserved.</small></p>
+</footer>    </div>
+    
+    
+    
+
+    </body>
+</html>
