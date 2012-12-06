@@ -1,4 +1,4 @@
-﻿/************
+/************
  *	
  *	Defaults
  *
@@ -56,8 +56,8 @@ h3{
 }
 
 .ui-content > h1, .ui-content > h2, .ui-content > h3 {
-	color: #fff;
-	text-shadow: 0 1px 0 #333;
+	color: #000;
+	
 }
 
 .page-message-container { 
@@ -73,6 +73,10 @@ h3{
 	border-bottom: solid 1px #ccc;
 }
 
+.your-account-details p {
+	margin: 1em;
+}
+
 .your-account-details span.label {
 	display: inline-block;
 	width: 40%;
@@ -84,10 +88,9 @@ h3{
 	color: #63a157;
 }
 
-div.ui-checkbox input[type="checkbox"]{
-	visibility: hidden;
-}
- 
+/**
+ *	Need to look for side effects with this
+ */ 
 .ui-btn {
     margin: 0.5em 0;   /* used to be margin: 0.5em 5px; */
 }
@@ -99,16 +102,8 @@ input.ui-input-text, textarea.ui-input-text, .ui-select, .ui-controlgroup-contro
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
 
-table.service-addresses {
-	width: 100%;
 }
-
-table.service-addresses td {
-	width: 50%;
-}
-
 
 /******************
  *	
@@ -128,24 +123,12 @@ table.service-addresses td {
  *
  ************/
  
-textarea.valid:not(:disabled),
-input.valid:not(:disabled){
-	 border: 2px solid #63a157;
- }
-
  .green{
 	 color: #63a157;
  }
  
- label.error,
  .red{
 	 color: #ff0000;
-	 margin-top: .2em;
- }
- 
- textarea.error,
- input.error{
-	 border: 2px solid #ff0000;
  }
  
  .bge-error{
@@ -153,20 +136,7 @@ input.valid:not(:disabled){
  }
  
  .white{
-	color: #ffffff;
-	text-shadow: 0 1px 0 #333;
- }
- 
- .black{
- 	color: #000000 !important;
- }
- 
- .underline{
-	 text-decoration: underline;
- }
- 
- .disclaimer{
-	 color: #999999;
+	 color: #000000;
  }
 
 /******************************
@@ -191,7 +161,7 @@ input.valid:not(:disabled){
 
 a.call-now-button {
 	padding: 2px 20px;
-	background: #eee;
+	background: #d2ddf1;
 	border: solid 1px #333;
 	color: #000 !important;
 	text-shadow: none !important;
@@ -232,12 +202,12 @@ a.call-now-button {
 	padding: 5px 20px;
 	border-radius: 10px;
 	background: rgba(255, 255, 255, .2);
-	color: #fff;
-	text-shadow: 0 1px 0 #333;
+	color: #000;
+	
 }
 .bge-bottom .ui-link:visited {
-	color: #fff;
-	text-shadow: 0 1px 0 #333;
+	color: #000;
+	
 }
 
 /************
@@ -247,7 +217,7 @@ a.call-now-button {
  ************/
  
  .ui-header #logo{
-	 margin: 25px 0px 0px 20px;
+	 margin: 5px 0px 0px 10px;
 	 
  }
 
@@ -285,8 +255,8 @@ a.bge-notifications-button{
 	text-shadow: none;
 	text-align: center;
 	display: block;
-	width: 25px;
-	height: 28px;
+	width: 23px;
+	height: 24px;
 	background-image: url("../images/notifications-icon.png");
 	background-repeat: no-repeat;
 	background-position-x: center;
@@ -426,12 +396,11 @@ a.bge-menu-button.active{
 	list-style: none;
 	padding: 15px;
 	margin: 0px;
-	border-bottom: 1px solid #ffffff;
+	
 }
 
 .slidemenu ul li a{
-	color: #ffffff;
-	text-shadow: 0 1px 0 #333;
+	color: #000;
 	font-weight: normal;
 }
 
@@ -490,20 +459,10 @@ a.bge-menu-button.active{
 /*
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 	.ui-icon-bge-report-outage {
-		background-image: url("../images/report-outage-icon.png");
+		background-image: url("app-icon-email-highres.png");
 		background-size: 18px 18px;
 	}
-	
-	.ui-icon-bge-view-outage-map {
-		background-image: url("../images/outage-map-icon.png");
-		background-size: 18px 18px;
-	}
-	
-	.ui-icon-bge-contact-us {
-		background-image: url("../images/contact-us-icon.png");
-		background-size: 18px 18px;
-		
-	}
+	...more HD icon rules go here...
 }
  */
 
@@ -531,9 +490,10 @@ a.bge-menu-button.active{
  **********************/
  
 .form-section-comments,
+.form-section-about-you,
 .form-section-light-details,
 .form-section-location-of-problem,
-.contact-form-wrapper .enter-location-details,
+.enter-location-details,
 .phone-number-for-access-container {
 	display: none;
 }	
@@ -546,9 +506,7 @@ a.bge-menu-button.active{
  **********************/
 
 .submit-slider-container{
-	display: block;
-	width: 85%;
-	margin: 0 auto;
+	direction: block;
 }
 
 .submit-slider-container .ui-slider-input{
@@ -630,12 +588,12 @@ a.bge-menu-button.active{
 	.ui-field-contain .ui-select {
 		width: 100%;
 	}
-
+	
 }
 
 @media screen and (min-width:480px) and (max-width:1800px) {
   
-	.ui-btn:not(.ui-btn-icon-notext):not(.ui-slider-handle):not(.slide-menu-btn):not(label),
+	.ui-btn:not(.ui-btn-icon-notext):not(.ui-slider-handle),
 	.submit-slider-container,
 	.ui-controlgroup-controls,
 	.ui-select,
@@ -648,10 +606,7 @@ a.bge-menu-button.active{
 	.ui-field-contain input.ui-input-text,
 	.ui-field-contain textarea.ui-input-text,
 	.ui-field-contain .ui-radio,
-	.ui-field-contain .ui-checkbox,
-	label.error,
-	.tablet-indent,
-	.your-account-details p {
+	.ui-field-contain .ui-checkbox{
 		width: 75%;
 	    margin-left: auto;
 	    margin-right: auto;
@@ -673,8 +628,8 @@ a.bge-menu-button.active{
 	.ui-checkbox label.ui-btn,
 	.ui-controlgroup-controls .ui-checkbox label.ui-btn,
 	.ui-field-contain .ui-checkbox label.ui-btn,
-	div.ui-select div.ui-btn,
-	div.ui-field-contain div.ui-select div.ui-btn{
+	div.ui-select .ui-btn,
+	div.ui-field-contain div.ui-select .ui-btn{
 		width: 100%;
 		margin-left: 0px;
 		margin-right: 0px;
@@ -684,7 +639,6 @@ a.bge-menu-button.active{
 	
 	
 }
-
 
 
 
