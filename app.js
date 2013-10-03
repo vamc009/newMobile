@@ -5,6 +5,7 @@
 
         // Get List of images from server
         getFeed = function () {
+			console.log("App started upload server is"+serverURL);
             $scroller.empty();
             $.ajax({url: serverURL + "/images", dataType: "json", type: "GET"}).done(function (data) {
                 var l = data.length;
@@ -16,6 +17,7 @@
 
         // Upload image to server
         upload = function (imageURI) {
+			console.log("Starting Upload to " + serverURL + "/SafetyAR.asmx/UploadImage");
             var ft = new FileTransfer(),
                 options = new FileUploadOptions();
 
@@ -27,7 +29,7 @@
                 "ARID": "MA1234", "LON" : "-74.044636", "LAT": "40.689060"
 			};
 
-            ft.upload(imageURI, serverURL + "/SafetyAR.asmx/UploadImag",
+            ft.upload(imageURI, serverURL + "/SafetyAR.asmx/UploadImage",
                 function (e) {
                     getFeed();
                 },
@@ -53,6 +55,7 @@
                     upload(imageURI);
                 },
                 function (message) {
+					console.log(message);
                     // We typically get here because the use canceled the photo operation. Fail silently.
                 }, options);
 
