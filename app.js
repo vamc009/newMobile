@@ -1,6 +1,6 @@
 (function () {
 
-    var serverURL = "http://stage-newsletter.bge.com/", // IMPORTANT: This URL needs to be accessible from your phone for testing.
+    var serverURL = "http://stage-newsletter.bge.com", // IMPORTANT: This URL needs to be accessible from your phone for testing.
         $scroller = $('.scroller'),
 
         // Get List of images from server
@@ -27,7 +27,7 @@
                 "ARID": "MA1234", "LON" : "-74.044636", "LAT": "40.689060"
 			};
 
-            ft.upload(imageURI, serverURL + "/SafetyAR.asmx/UploadImag",
+            ft.upload(imageURI, serverURL + "/SafetyAR.asmx/UploadImage",
                 function (e) {
                     getFeed();
                 },
@@ -62,6 +62,6 @@
 
     $('.camera-btn').on('click', takePicture);
 
-    getFeed();
+    //getFeed();
 
 }());
