@@ -17,18 +17,20 @@
 
         // Upload image to server
         upload = function (imageURI) {
-			console.log("Starting Upload to " + serverURL + "/SafetyAR.asmx/UploadImage");
+			console.log("Preparing Upload");
             var ft = new FileTransfer(),
                 options = new FileUploadOptions();
 
             options.fileKey = "file";
-            options.fileName = imageURI.substr(fileURI.lastIndexOf('/')+1);
+            options.fileName = "testimage.jpg";
             options.mimeType = "image/jpeg";
-            options.chunkedMode = false;
+            options.chunkedMode = true;
             options.params = { 
                 "ARID": "MA1234", "LON" : "-74.044636", "LAT": "40.689060"
 			};
 
+			console.log("Starting Upload to " + serverURL + "/SafetyAR.asmx/UploadImage");
+			
             ft.upload(imageURI, serverURL + "/SafetyAR.asmx/UploadImage",
                 function (e) {
                     getFeed();
@@ -41,7 +43,7 @@
         // Take a picture using the camera or select one from the library
         takePicture = function (e) {
             var options = {
-                quality: 45,
+                quality: 10,
                 targetWidth: 1000,
                 targetHeight: 1000,
                 destinationType: Camera.DestinationType.FILE_URI,
@@ -65,6 +67,6 @@
 
     $('.camera-btn').on('click', takePicture);
 
-    //getFeed();
+    getFeed();
 
 }());
