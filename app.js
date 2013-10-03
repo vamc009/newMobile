@@ -1,6 +1,6 @@
 (function () {
 
-    var serverURL = "http://stage-newsletter.bge.com/", // IMPORTANT: This URL needs to be accessible from your phone for testing.
+    var serverURL = "http://stage-newsletter.bge.com", // IMPORTANT: This URL needs to be accessible from your phone for testing.
         $scroller = $('.scroller'),
 
         // Get List of images from server
@@ -65,6 +65,6 @@
 
     $('.camera-btn').on('click', takePicture);
 
-    getFeed();
+    //getFeed();
 
 }());
