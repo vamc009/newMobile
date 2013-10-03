@@ -32,8 +32,8 @@
 
 			console.log("Starting Upload to " + serverURL + "/SafetyAR.asmx/UploadImage");
 			
-            ft.upload(imageURI, serverURL + "/SafetyAR.asmx/UploadImage",
-                function (e) {
+            ft.upload(imageURI, serverURL + "/SafetyAR.asmx/UploadImage", win,fail,options);
+                /*function (e) {
 					console.log("Code = " + r.responseCode);
 					console.log("Response = " + r.response);
 					console.log("Sent = " + r.bytesSent);
@@ -41,9 +41,18 @@
                 },
                 function (e) {
                     alert("Upload failed");
-                }, options);
+                }, options);*/
         },
-
+		 win = function (r) {
+            console.log("Code = " + r.responseCode);
+            console.log("Response = " + r.response);
+            console.log("Sent = " + r.bytesSent);
+			getFeed();
+        },
+        fail = function (error) {
+            alert("An error has occurred: Code = " = error.code);
+        }
+		
         // Take a picture using the camera or select one from the library
         takePicture = function (e) {
             var options = {
@@ -70,7 +79,9 @@
         };
 
     $('.camera-btn').on('click', takePicture);
+	$('.getFeed-btn').on('click', getFeed);
+	
 
-    getFeed();
+    //getFeed();
 
 }());
