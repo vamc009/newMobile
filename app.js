@@ -24,7 +24,7 @@
                 options = new FileUploadOptions();
 
             options.fileKey = "file";
-            options.fileName = "testimage.jpg";
+            options.fileName = new Date().getTime() + imageURI.substr(imageURI.lastIndexOf('/')+1);
             options.mimeType = "image/jpeg";
             options.params = { 
                 "ARID": "MA1234", "LON" : "-74.044636", "LAT": "40.689060"
