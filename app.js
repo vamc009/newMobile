@@ -7,7 +7,7 @@
         getFeed = function () {
 			console.log("App started, upload server is "+serverURL);
             $scroller.empty();
-            $.ajax({url: serverURL + "/images", type: "GET"}).done(function (data) {
+            $.ajax({url: serverURL + "/mapped.aspx", type: "GET"}).done(function (data) {
                 /*var l = data.length;
                 for (var i = 0; i < l; i++) {
                     $scroller.append('<img src="' + serverURL + '/' + data[i].fileName + '"/>');
