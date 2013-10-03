@@ -5,13 +5,15 @@
 
         // Get List of images from server
         getFeed = function () {
-			console.log("App started upload server is"+serverURL);
+			console.log("App started, upload server is "+serverURL);
             $scroller.empty();
-            $.ajax({url: serverURL + "/images", dataType: "json", type: "GET"}).done(function (data) {
-                var l = data.length;
+            $.ajax({url: serverURL + "/images", type: "GET"}).done(function (data) {
+                /*var l = data.length;
                 for (var i = 0; i < l; i++) {
                     $scroller.append('<img src="' + serverURL + '/' + data[i].fileName + '"/>');
-                }
+                }*/
+				$scroller.append('<img src="http://stage-newsletter.bge.com/images/AR1234_-74.044636_+40.689060_1380576629348.jpg"/>');
+				$scroller.append('<img src="http://stage-newsletter.bge.com/images/AR1234IPAD_-122.33715_47.62783333333334_test-ipadupload.jpg"/>');
             });
         },
 
@@ -24,7 +26,6 @@
             options.fileKey = "file";
             options.fileName = "testimage.jpg";
             options.mimeType = "image/jpeg";
-            options.chunkedMode = true;
             options.params = { 
                 "ARID": "MA1234", "LON" : "-74.044636", "LAT": "40.689060"
 			};
@@ -33,6 +34,9 @@
 			
             ft.upload(imageURI, serverURL + "/SafetyAR.asmx/UploadImage",
                 function (e) {
+					console.log("Code = " + r.responseCode);
+					console.log("Response = " + r.response);
+					console.log("Sent = " + r.bytesSent);
                     getFeed();
                 },
                 function (e) {
@@ -43,7 +47,7 @@
         // Take a picture using the camera or select one from the library
         takePicture = function (e) {
             var options = {
-                quality: 10,
+                quality: 45,
                 targetWidth: 1000,
                 targetHeight: 1000,
                 destinationType: Camera.DestinationType.FILE_URI,
