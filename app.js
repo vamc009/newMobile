@@ -12,8 +12,8 @@
                 for (var i = 0; i < l; i++) {
                     $scroller.append('<img src="' + serverURL + '/' + data[i].fileName + '"/>');
                 }*/
-				$scroller.append('<img src="http://stage-newsletter.bge.com/images/AR1234_-74.044636_+40.689060_1380576629348.jpg"/>');
-				$scroller.append('<img src="http://stage-newsletter.bge.com/images/AR1234IPAD_-122.33715_47.62783333333334_test-ipadupload.jpg"/>');
+				$scroller.append(data);
+				//$scroller.append('<img src="http://stage-newsletter.bge.com/images/AR1234IPAD_-122.33715_47.62783333333334_test-ipadupload.jpg"/>');
             });
         },
 
