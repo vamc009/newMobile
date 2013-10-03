@@ -7,7 +7,7 @@
         getFeed = function () {
 			console.log("App started, upload server is "+serverURL);
             $scroller.empty();
-            $.ajax({url: serverURL + "/mapped.aspx", type: "GET"}).done(function (data) {
+            $.ajax({url: serverURL + "/images", type: "GET"}).done(function (data) {
                 /*var l = data.length;
                 for (var i = 0; i < l; i++) {
                     $scroller.append('<img src="' + serverURL + '/' + data[i].fileName + '"/>');
@@ -56,9 +56,7 @@
         // Take a picture using the camera or select one from the library
         takePicture = function (e) {
             var options = {
-                quality: 45,
-                targetWidth: 1000,
-                targetHeight: 1000,
+                quality: 50,
                 destinationType: Camera.DestinationType.FILE_URI,
                 encodingType: Camera.EncodingType.JPEG,
                 sourceType: Camera.PictureSourceType.CAMERA
