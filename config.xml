@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.coenraets.demo" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.exeloncorp.mobile.SafetyAR" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Photoupload</name>
     <description>
         Test Photoupload
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
+    <author email="vamsi.maddirala@constellation.com" href="http://www.exeloncorp.com">
        Vamsi Maddirala
     </author>
     <feature name="http://api.phonegap.com/1.0/device" />
